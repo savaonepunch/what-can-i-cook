@@ -33,7 +33,7 @@ const searchInput = ref(null);
 
 const { data: response, pending, refresh } = await useAsyncData(() => {
     if (!searchInput.value) return;
-    console.log(searchInput.value);
+    
     return $fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${searchInput.value}`);
 });
 const recipes = ref([]);
@@ -41,15 +41,15 @@ const recipes = ref([]);
 const debouncedSearchMeals = useDebounce(async () => {
     if (!searchInput.value) return;
     await refresh();
-    console.log(response.value);
+    
     recipes.value = response.value.meals;
-    console.log(recipes.value);
+    
 }, 500);
 
 watch(searchInput, debouncedSearchMeals);
 
 onMounted(() => {
-    console.log(user.value);
+    
 });
 </script>
 

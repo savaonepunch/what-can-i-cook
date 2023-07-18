@@ -20,7 +20,7 @@ const { data: response, pending, error } = await useAsyncData(() => {
 
 onMounted(() => {
     recipes.value = response.value.meals;
-    console.log(recipes.value);
+    
 });
 </script>
 

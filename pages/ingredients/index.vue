@@ -62,7 +62,7 @@ const filteredIngredients = computed(() => {
         resultSweet = result.filter(ingredient => ingredient.strIngredient.toLowerCase().includes('sweet'));
     }
 
-    console.log(resultHot, resultSweet)
+    
 
     // We check if the filters object has any values that are true, if there are, we destructure the filtered arrays and combine them
     // in order to get an array with those filters applied to the original array.

@@ -75,10 +75,10 @@ const signUp = async () => {
     })
 
     if (error) {
-        console.log(emailInput.value);
-        console.log(passwordInput.value);
+        
+        
 
-        console.log(error.message);
+        
         return alert(error.message);
     }
 
@@ -92,10 +92,10 @@ const signIn =  async() => {
     })
 
     if (error) {
-        console.log(emailInput.value);
-        console.log(passwordInput.value);
+        
+        
 
-        console.log(error.message);
+        
         return alert(error.message);
     }
 
@@ -106,7 +106,7 @@ const signInWithDiscord = async () => {
     const { data, error } = await client.auth.signInWithOAuth({ provider: 'discord' });
 
     if (error) {
-        console.log(error);
+        
         return alert('Something went wrong.');
     }
 

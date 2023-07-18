@@ -80,7 +80,7 @@ const user = useSupabaseUser();
 const favoritesStore = useFavoritesStore();
 
 const { data: response, pending, refresh } = await useAsyncData(() => {
-    console.log(route.params.id);
+    
     return $fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${route.params.id}`);
 });
 const recipe = ref();
@@ -121,17 +121,17 @@ const addToFavorites = async () => {
         discord_username: user.value.identities[0].identity_data.name
     });
 
-    console.log(error);
+    
 
     if (error == null) {
         modalState.value = 'success';
         isFavorite.value = true;
         isModalOpen.value = true;
-        console.log(modalState.value);
+        
     }
 
     else if (error.code == 23505) {
-        console.log("You already have this recipe in your favorties!");
+        
         
         modalState.value = 'errorDuplicate';
         isModalOpen.value = true;
@@ -146,7 +146,7 @@ const removeFromFavorites = async () => {
         .eq('recipe_id', recipe.value.idMeal)
 
     if (error) {
-        console.log(error);
+        
     }
 
     else {
@@ -155,7 +155,7 @@ const removeFromFavorites = async () => {
 }
 
 const checkIfFavorite = () => {
-    console.log(favoritesStore.recipes);
+    
     if (favoritesStore.recipes.filter((r) => r.recipe_id == recipe.value.idMeal).length) {
         isFavorite.value = true;
     }
@@ -163,9 +163,9 @@ const checkIfFavorite = () => {
 }
 
 onMounted(() => {
-    console.log("Store", favoritesStore.recipes);
+    
     recipe.value = response.value.meals[0];
-    // console.log(recipe.value);
+    // 
     getIngredientsAndMeasurements();
 
     // 10000 iq
@@ -174,7 +174,7 @@ onMounted(() => {
     }
 
     checkIfFavorite();
-    console.log(isFavorite.value);
+    
 });
 </script>
 

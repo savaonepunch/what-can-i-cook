@@ -148,10 +148,10 @@ defineEmits(['search'])
 
 onMounted(() => {
     categories.value = categoriesResponse.value.meals;
-    console.log(categories.value);
+    
 
     areas.value = areasResponse.value.meals;
-    console.log(areas.value);
+    
 })
 </script>
 

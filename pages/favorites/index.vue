@@ -43,15 +43,15 @@ const { data: recipes, error, pending } = useAsyncData('recipes', async () => {
     transform: result => result.data
 });
 
-console.log(recipes.value);
+
 
 const storeFavorites = () => {
-    console.log(pending.value);
-    console.log(user.value);
+    
+    
 
     if (user.value && !pending.value) {
         favoritesStore.recipes = recipes.value;
-        console.log(favoritesStore.recipes);
+        
         return;
     }
 
@@ -66,8 +66,8 @@ const storeFavorites = () => {
 
 onMounted(async () => {
     storeFavorites();
-    console.log(pending.value);
-    console.log(favoritesStore.recipes);
+    
+    
 });
 
 </script>
