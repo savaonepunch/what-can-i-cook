@@ -21,6 +21,14 @@
                 <button @click="$router.push(`/ingredients`)"
                     class=" whitespace-nowrap mr-auto bg-accent py-2 px-8 rounded-full text-white">View Ingredients
                 </button>
+                <div class="flex items-center gap-2">
+                    <div class="text-[12px] w-fit py-1 px-2 grid place-content-center rounded-full text-accent bg-white shadow-xl shadow-slate-300">
+                        <span>NEW!</span>
+                    </div>
+                    <p class=" text-gray-800 fontme max-w-[500px]">You can now <NuxtLink to="/upload"><span class="text-accent cursor-pointer hover:underline">upload</span></NuxtLink> your own recipes!
+                </p>
+                    
+                </div>
             </div>
         </div>
     </div>
