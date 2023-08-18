@@ -39,21 +39,23 @@
                 <div>
                     <div class="flex flex-row gap-2 items-center mb-5 ">
                         <h4 class=" font-medium">Category:</h4>
-                        <div class="cursor-pointer bg-slate-200 rounded-full py-1 px-3 w-fit ">
-                            <NuxtLink :to="`/categories/${recipe?.strCategory.toLowerCase()}`">
-                                <button class="text-sm">{{ recipe?.strCategory }}</button>
-                            </NuxtLink> 
-                        </div>
+                        <NuxtLink :to="`/categories/${recipe?.strCategory.toLowerCase()}`"
+                                  class="text-sm cursor-pointer bg-slate-200 rounded-full py-1 px-3 w-fit ">
+
+                            {{ recipe?.strCategory }}
+
+                        </NuxtLink>
                     </div>
 
-                    <div class="flex flex-row gap-2 items-center mb-12 ">
+                    <NuxtLink :to="`/areas/${recipe?.strArea.toLowerCase()}`"
+                              class="flex flex-row gap-2 items-center mb-12 ">
                         <h4 class=" font-medium">Area:</h4>
-                        <div class="cursor-pointer bg-slate-200 rounded-full py-1 px-3 w-fit ">
-                            <NuxtLink :to="`/areas/${recipe?.strArea.toLowerCase()}`">
-                                <button class="text-sm">{{ recipe?.strArea }}</button>
-                            </NuxtLink> 
+                        <div class="text-sm cursor-pointer bg-slate-200 rounded-full py-1 px-3 w-fit ">
+
+                            {{ recipe?.strArea }}
+
                         </div>
-                    </div>
+                    </NuxtLink>
 
                     <h4 class=" font-medium">Ingredients:</h4>
                     <ul class="list-disc ml-5 mt-6">
@@ -110,7 +112,7 @@ const addToFavorites = async () => {
         modalState.value = 'errorNotLoggedIn';
         isModalOpen.value = true;
         return;
-    }    
+    }
 
     const { error } = await client.from('recipes').insert({
         recipe_id: recipe.value.idMeal,
@@ -132,7 +134,7 @@ const addToFavorites = async () => {
 
     else if (error.code == 23505) {
         console.log("You already have this recipe in your favorties!");
-        
+
         modalState.value = 'errorDuplicate';
         isModalOpen.value = true;
     }
